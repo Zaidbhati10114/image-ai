@@ -7,6 +7,7 @@ import { Providers } from "@/components/providers";
 import { Toaster } from "@/components/ui/sonner";
 import { Modals } from "@/components/modals";
 import { SubscriptionAlert } from "@/features/susbscriptions/components/subscription-alert";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +24,7 @@ export default async function RootLayout({
   const session = await auth();
   return (
     <SessionProvider session={session}>
+      <Analytics />
       <html lang="en">
         <body className={inter.className}>
           <Providers>
